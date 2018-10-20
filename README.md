@@ -22,12 +22,12 @@ $ npm deploy
 ```
 Verify the deployment by navigating to your server address in your preferred browser.
 ```sh
-127.0.0.1:3000
+localhost:3000
 ```
 
 ### Tech
 
-Dillinger uses a number of open source projects to work properly:
+This App uses a number of open source projects to work properly:
 
 * [React] - A JavaScript library for building user interfaces!
 * [node.js] - evented I/O for the backend!
