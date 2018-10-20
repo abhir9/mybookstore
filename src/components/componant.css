@@ -1,0 +1,104 @@
+@keyframes lds-dual-ring {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes lds-dual-ring {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+.lds-dual-ring div {
+    position: relative;
+    top: 200px;
+    height: 60px;
+    text-align: center;
+    margin: 0px auto;
+    width: 60px;
+    border-radius: 50%;
+    border: 8px solid #000;
+    border-color: #3be8b0 transparent #3be8b0 transparent;
+    -webkit-animation: lds-dual-ring 1s linear infinite;
+    animation: lds-dual-ring 1s linear infinite;
+}
+
+.lds-dual-ring {
+    -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+    transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
+
+.star {
+    position: relative;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: .9em;
+    margin-right: .9em;
+    margin-bottom: 1.2em;
+    border-right: .3em solid transparent;
+    border-bottom: .7em solid #3be8b0;
+    border-left: .3em solid transparent;
+    top:5px;
+    font-size: 24px;
+}
+
+.star:before, .star:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: .6em;
+    left: -1em;
+    border-right: 1em solid transparent;
+    border-bottom: .7em solid #3be8b0;
+    border-left: 1em solid transparent;
+    -webkit-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+}
+
+.star:after {
+    -webkit-transform: rotate(35deg);
+    transform: rotate(35deg);
+}
+
+.modaldiv{
+ position: fixed;
+top:90px;
+width: 65%;
+min-height: 500px;
+color: white;
+background-color: #171616f2
+}
+.modalclose{
+    font-size: 2em;
+    width: 40px;
+    padding: 0px 10px;
+    cursor: pointer;
+}
+.stardiv{
+    width: 233px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.rating{
+    color: #3be8b0;
+}
+.details{
+    max-height: 500px;
+    overflow: auto;
+}
