@@ -1,3 +1,6 @@
+#Live Demo
+https://my-book-store.herokuapp.com/
+
 # Book Web App
 
 This is a Book App built in [ReactJS](http://facebook.github.io/react/index.html).
