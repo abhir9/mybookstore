@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Button, Col, FormControl, FormGroup, Image, Navbar, Row} from 'react-bootstrap/lib'
+import {Navbar} from 'react-bootstrap/lib'
 import {connect} from 'react-redux'
 import './search.css'
 import Autosuggest from 'react-autosuggest'
@@ -14,25 +14,26 @@ class SearchBar extends Component {
     this.state = {
       value: '',
       suggestions: [],
-        loading:false
+      loading: false
     };
   }
-    componentWillReceiveProps(nextProps) {
-        const {isFetching,bookList} = nextProps;
-        this.setState({
-            loading: isFetching & bookList.items & bookList.items.length>0
-        })
-    }
+
+  componentWillReceiveProps(nextProps) {
+    const {isFetching, bookList} = nextProps;
+    this.setState({
+      loading: isFetching & bookList.items & bookList.items.length > 0
+    })
+  }
 
 
-    onChange = (event, {newValue, method}) => {
+  onChange = (event, {newValue, method}) => {
     this.setState({
       value: newValue
     });
   };
 
   handleKeyDown = (event) => {
-    if (event.key == 'Enter') {
+    if (event.key === 'Enter') {
       return this.handleSubmit(this.state.value);
     }
   }
@@ -40,7 +41,7 @@ class SearchBar extends Component {
   handleSubmit = (searchText) => {
     const {dispatch} = this.props;
     dispatch(fetchBookList(searchText));
-    this.setState({value: '',suggestions: [],loading:true});
+    this.setState({value: '', suggestions: [], loading: true});
 
   }
 
@@ -51,7 +52,7 @@ class SearchBar extends Component {
 
   onSuggestionsFetchRequested = ({value}) => {
     const trimmedValue = value.trim();
-      this.setState({loading:true});
+    this.setState({loading: true});
     if (trimmedValue.length > 0) {
       let url = NODE_HOST + NODE_SEARCH + trimmedValue;
       fetch(url)
@@ -68,7 +69,7 @@ class SearchBar extends Component {
             });
             this.setState({
               suggestions: results,
-                loading:false
+              loading: false
             });
           }).catch(error => console.log('Exception to get Suggestions'))
     }
@@ -88,7 +89,7 @@ class SearchBar extends Component {
   renderSuggestion = (suggestion) => {
     return (
         <a>
-          <img className="searchResult-image" src={suggestion.img}/>
+          <img className="searchResult-image" src={suggestion.img} alt={suggestion.title}/>
           <div className="searchResult-text">
             <div className="searchResult-name">
               {suggestion.title}
@@ -102,9 +103,9 @@ class SearchBar extends Component {
   onSuggestionSelected = (event, {suggestion, method}) => {
     const {dispatch} = this.props;
     dispatch(fetchBookDetail(suggestion.id));
-      this.state = {
-          value: '',
-      };
+    this.state = {
+      value: '',
+    };
   };
 
   render() {
@@ -113,10 +114,9 @@ class SearchBar extends Component {
       textTransform: 'caplitalize',
       paddingLeft: 10,
       fontSize: '1.8em',
-        color: '#3be8b0'
+      color: '#3be8b0'
     };
     const {value, suggestions} = this.state;
-    1
     const inputProps = {
       value,
       onChange: this.onChange,
@@ -142,7 +142,7 @@ class SearchBar extends Component {
                 inputProps={inputProps}/>
           </Navbar.Form>
           <div>
-              {this.state.loading && <DisplayMsg top={1}/>}
+            {this.state.loading && <DisplayMsg top={1}/>}
           </div>
         </Navbar>
     );
@@ -151,9 +151,9 @@ class SearchBar extends Component {
 }
 
 function mapStateToProps(state) {
-    const {bookList} = state;
-    const {isFetching} = bookList;
-    return {isFetching,bookList}
+  const {bookList} = state;
+  const {isFetching} = bookList;
+  return {isFetching, bookList}
 }
 
 export default connect(mapStateToProps)(SearchBar);

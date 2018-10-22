@@ -1,7 +1,6 @@
 import {combineReducers} from 'redux'
 import {routerReducer} from 'react-router-redux'
 import {
-  ENTER_SEARCH_TEXT,
   FETCH_BOOK,
   FETCH_BOOK_FAILURE,
   FETCH_BOOK_SUCCESS,
@@ -37,7 +36,7 @@ const bookList = (state = defaultStateList, action) => {
 
 const defaultState = {
   isFetching: false,
-    items: {},
+  items: {},
   error: {}
 };
 
@@ -50,7 +49,7 @@ const bookDetail = (state = defaultState, action) => {
     case FETCH_BOOK_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-          items: action.data
+        items: action.data
       });
     case FETCH_BOOK_FAILURE:
       return Object.assign({}, state, {
@@ -62,21 +61,9 @@ const bookDetail = (state = defaultState, action) => {
   }
 };
 
-
-const input = (state = '', action) => {
-  switch (action.type) {
-    case ENTER_SEARCH_TEXT:
-      return Object.assign({}, state, {
-        isFetching: true
-      });
-    default:
-      return state;
-  }
-};
-
 const bookApp = combineReducers({
-    bookDetail,
-    bookList,
+  bookDetail,
+  bookList,
   routing: routerReducer
 });
 

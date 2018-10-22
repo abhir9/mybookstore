@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {DisplayMsg, BookList} from '../components';
+import {BookList, DisplayMsg} from '../components';
 import {connect} from 'react-redux';
 import {fetchBookList, searchBookList} from '../actions';
 
@@ -29,7 +29,7 @@ class BookContainer extends Component {
     const {books} = this.props;
     if (books.length > 0) {
       return (
-          <BookList  books={books}/>
+          <BookList books={books}/>
       );
     } else {
       return (<DisplayMsg/>);
@@ -39,8 +39,8 @@ class BookContainer extends Component {
 
 
 function mapStateToProps(state, ownProps) {
-  const {bookList, bookDetail} = state;
-  const { items: books, error_bookList} = bookList;
+  const {bookList} = state;
+  const {items: books} = bookList;
   const keyword = ownProps.params.keyword;
   return {books, keyword}
 }

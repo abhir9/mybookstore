@@ -1,8 +1,8 @@
-import React , { Component } from 'react';
-import { Image } from 'react-bootstrap'
+import React from 'react';
+import {Image} from 'react-bootstrap'
 import styled from 'styled-components'
 
-export default function Poster(props){
+export default function Poster(props) {
 
   const StyledImg = styled.div`
     padding: 15px 10px 15px 10px;
@@ -10,10 +10,10 @@ export default function Poster(props){
        opacity:1;
     }
     &:hover .title{
-       opacity: ${props.info ? 1:0};
+       opacity: ${props.info ? 1 : 0};
     }
   `;
-  const Info =  styled.div`
+  const Info = styled.div`
       position: absolute;
       top: 75%;
       margin:10px;
@@ -21,14 +21,14 @@ export default function Poster(props){
       font-weight:bold;
       opacity:0;
   `;
-  return(
-    <StyledImg>
-      <Image className="image" style={{width: '233px' , height: '300px'}} key={props.id} src={props.path} responsive />
-      {props.info &&
-      <Info className="title">
-        <h4>{props.title}</h4>
-      </Info>
-      }
-    </StyledImg>
+  return (
+      <StyledImg>
+        <Image className="image" style={{width: '233px', height: '300px'}} key={props.id} src={props.path} responsive/>
+        {props.info &&
+        <Info className="title">
+          <h4>{props.title}</h4>
+        </Info>
+        }
+      </StyledImg>
   );
 }
