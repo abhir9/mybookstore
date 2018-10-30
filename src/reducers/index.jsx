@@ -18,7 +18,7 @@ const defaultStateList = {
   error: {}
 };
 
-const bookList = (state = defaultStateList, action) => {
+export function bookList(state = defaultStateList, action) {
   switch (action.type) {
     case FETCH_BOOKS:
     case SEARCH_BOOK:
@@ -40,7 +40,7 @@ const defaultState = {
   error: {}
 };
 
-const bookDetail = (state = defaultState, action) => {
+export function bookDetail(state = defaultState, action) {
   switch (action.type) {
     case FETCH_BOOK:
       return Object.assign({}, state, {
