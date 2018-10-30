@@ -29,13 +29,13 @@ class BookList extends React.Component {
     })
   }
 
-  showModal = (bookid) => {
+  showModal(bookid) {
     const {dispatch} = this.props;
     this.setState({data: undefined, show: true, bookid: bookid});
     dispatch(fetchBookDetail(bookid));
   }
 
-  hideModal = () => {
+  hideModal() {
     this.setState({show: false, data: undefined, bookid: undefined});
   }
 

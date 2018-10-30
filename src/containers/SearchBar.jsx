@@ -26,19 +26,19 @@ class SearchBar extends Component {
   }
 
 
-  onChange = (event, {newValue, method}) => {
+  onChange(event, {newValue, method}) {
     this.setState({
       value: newValue
     });
   };
 
-  handleKeyDown = (event) => {
+  handleKeyDown(event) {
     if (event.key === 'Enter') {
       return this.handleSubmit(this.state.value);
     }
   }
 
-  handleSubmit = (searchText) => {
+  handleSubmit(searchText) {
     const {dispatch} = this.props;
     dispatch(fetchBookList(searchText));
     this.setState({value: '', suggestions: [], loading: true});
@@ -46,11 +46,11 @@ class SearchBar extends Component {
   }
 
 
-  getSuggestionValue = (suggestion) => {
+  getSuggestionValue(suggestion) {
     return this.state.value;
   };
 
-  onSuggestionsFetchRequested = ({value}) => {
+  onSuggestionsFetchRequested({value}) {
     const trimmedValue = value.trim();
     this.setState({loading: true});
     if (trimmedValue.length > 0) {
@@ -80,13 +80,13 @@ class SearchBar extends Component {
     }
   }
 
-  onSuggestionsClearRequested = () => {
+  onSuggestionsClearRequested() {
     this.setState({
       suggestions: []
     });
   };
 
-  renderSuggestion = (suggestion) => {
+  renderSuggestion(suggestion) {
     return (
         <a>
           <img className="searchResult-image" src={suggestion.img} alt={suggestion.title}/>
@@ -100,7 +100,7 @@ class SearchBar extends Component {
     );
   };
 
-  onSuggestionSelected = (event, {suggestion, method}) => {
+  onSuggestionSelected(event, {suggestion, method}) {
     const {dispatch} = this.props;
     dispatch(fetchBookDetail(suggestion.id));
     this.state = {
