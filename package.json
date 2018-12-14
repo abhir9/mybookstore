@@ -1,6 +1,6 @@
 {
   "name": "Book-Store",
-  "version": "0.1.0",
+  "version": "0.1.0.0",
   "author": "abhimanyu singh rathore",
   "dependencies": {
     "goodreads-api-node": "0.0.9",
